@@ -13,8 +13,8 @@ var Isometric = {
 
     app: null, // this will be the pixi app
     stage: null,
-    width: 800,
-    height: 600,
+    width: document.documentElement.clientWidth,
+    height: document.documentElement.clientHeight,
   
     BB: null,
     offsetX: 0,
@@ -51,12 +51,13 @@ var Isometric = {
       self.stage  = new PIXI.Container;
 
       self.app = new PIXI.autoDetectRenderer({ 
-        width: 800, 
-        height: 600,                       
+        width: self.width, 
+        height: self.height,                       
         antialias: true, 
         transparent: false, 
         resolution: 1, clearBeforeRender: true
       });
+
 
       this.canvas = self.app.view;
       document.body.appendChild(this.canvas);
